@@ -1,4 +1,4 @@
-from mizodb import MiZODB
+from model.mizodb import MiZODB
 import transaction
 import persistent
 
@@ -7,7 +7,7 @@ class Model(persistent.Persistent):
   @staticmethod
   def getAll(self):
     print("dentro del getAll!")
-    db = MiZODB('sgr-data.fs')
+    db = MiZODB('sagep-data.fs')
     dbroot = db.root
     recursos = []
     print("Clave: ", self.getClave(self))
@@ -19,7 +19,7 @@ class Model(persistent.Persistent):
   #createObject in DB
   def create(self):
     print("Clave: ", self.getClave())
-    db = MiZODB('sgr-data.fs')
+    db = MiZODB('sagep-data.fs')
     dbroot = db.root
     if not self.getClave() in dbroot.keys():
       print("Creo el slot")
@@ -41,7 +41,7 @@ class Model(persistent.Persistent):
   # getOne
   @staticmethod
   def getOne(self):
-    db = MiZODB('sgr-data.fs')
+    db = MiZODB('sagep-data.fs')
     dbroot = db.root
     recursos = []
     for i in dbroot[self.getClave(self)]:

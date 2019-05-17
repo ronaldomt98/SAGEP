@@ -1,19 +1,16 @@
-# -*- coding: utf-8 -*-
-# !/usr/bin/python
-from abc import ABCMeta, abstractmethod
-from persistent import *
+
+from abc import ABC, abstractmethod
+from model.model import Model
 
 #......................CLASE PERSONA...............................
 class Persona(ABC, Model):
 
-	__metaclass__ = ABCMeta
-   
-	def __init__(self, nombre='', apellido='', cedula=0, direccion='No especificada', contactos=[]):
+	def __init__(self, nombre='', apellido='', cedula=0, direccion='No especificada', *contactos):
 		self.nombre = nombre
 		self.apellido = apellido
 		self.cedula = cedula 
 		self.direccion = direccion
-		self.contacto = contactos
+		self.contactos = contactos
       
 	'---Funciones que permiten obtener los atributos (getters)---'
    
@@ -31,8 +28,6 @@ class Persona(ABC, Model):
    
 	def obtener_contacto(self):
 		return self.contactos
-      
-      
    
 	def __str__(self):
 		return ('\nNOMBRES Y APELLIDOS: '+self.nombre+' '+self.apellido+'\nCEDULA: '+str(self.cedula)

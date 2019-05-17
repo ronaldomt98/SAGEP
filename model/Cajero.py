@@ -1,13 +1,12 @@
-# -*- coding: utf-8 -*-
-# !/usr/bin/python
-from abc import ABCMeta, abstractmethod
-from persistent import *
-from .Empleado import Empleado
+from model.empleado import Empleado
 
 #...................................CLASE CAJERO..........................................
 '''CLASE QUE HEREDA DE Empleado'''
-class Empleado(Empleado, Persistent):
-   
+class Cajero(Empleado):
+	clave = "cajero"
+	def getClave(self):
+		return self.clave
+
 	def __init__(self, **kwargs):
 		super().__init__(**kwargs)
 
