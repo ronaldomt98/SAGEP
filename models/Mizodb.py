@@ -1,5 +1,6 @@
 from ZODB import FileStorage, DB
 
+
 class MiZODB(object):
     def __init__(self, archivo):
         self.storage = FileStorage.FileStorage(archivo)

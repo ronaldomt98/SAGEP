@@ -1,5 +1,6 @@
 from abc import ABC
-from models.Model import Model
+from .Model import Model
+
 
 class Contacto(ABC, Model):
 

@@ -1,15 +1,14 @@
-
 class Cajero:
+    clave = "cajero"
 
-	clave = "cajero"
-	def getClave(self):
-		return self.clave
+    def get_clave(self):
+        return self.clave
 
-	def __init__(self, empleado):
-		self.empleado = empleado
+    def __init__(self, empleado):
+        self.empleado = empleado
 
-	def cobrar(self, bien, cantidad):
-		pass
+    def cobrar(self, bien, cantidad):
+        pass
 
-	def __str__(self):
-		return (str(self.empleado))
+    def __str__(self):
+        return str(self.empleado)

@@ -1,15 +1,14 @@
-from models.Maquina import Maquina
-
-'''CLASE QUE HEREDA DE MAQUINA'''
+from .Maquina import Maquina
 
 
 class SierraCircular(Maquina):
     clave = "sierra_circular"
 
-    def getClave(self):
+    def get_clave(self):
         return self.clave
 
     def __init__(self):
+        super(SierraCircular, self).__init__()
         pass
 
     def cortar(self):

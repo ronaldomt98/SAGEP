@@ -1,12 +1,14 @@
-from models.Maquina import Maquina
+from .Maquina import Maquina
 
-class perforadora(Maquina):
+
+class Perforadora(Maquina):
     clave = "perforadora"
 
-    def getClave(self):
+    def get_clave(self):
         return self.clave
 
     def __init__(self):
+        super(Perforadora, self).__init__()
         pass
 
     def perforar(self):
