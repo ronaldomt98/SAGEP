@@ -1,8 +1,4 @@
-from model.maquina import Maquina
-
-# ...................................CLASE PRENSA..........................................
-'''CLASE QUE HEREDA DE MAQUINA'''
-
+from models.Maquina import Maquina
 
 class Prensa(Maquina):
     clave = "prensa"

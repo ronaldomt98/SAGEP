@@ -1,6 +1,5 @@
-from model.maquina import Maquina
+from models.Maquina import Maquina
 
-# ...................................CLASE SIERRACIRCULAR..........................................
 '''CLASE QUE HEREDA DE MAQUINA'''
 
 

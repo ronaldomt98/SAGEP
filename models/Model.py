@@ -1,6 +1,6 @@
-from model.mizodb import MiZODB
-import transaction
 import persistent
+import transaction
+from models.Mizodb import MiZODB
 
 class Model(persistent.Persistent):
   #getAll
