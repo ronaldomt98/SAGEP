@@ -1,4 +1,5 @@
 from abc import ABC
+
 from .Model import Model
 
 
@@ -28,5 +29,5 @@ class Persona(ABC, Model):
         return self.contactos
 
     def __str__(self):
-        return ('\nNOMBRES Y APELLIDOS: ' + self.nombre + ' ' + self.apellido + '\nCEDULA: ' + str(self.cedula)
+        return ('\nNOMBRES Y APELLIDOS: ' + self.nombre + ' ' + self.apellido + '\nCEDULA: ' + self.cedula
                 + '\nDIRECCION: ' + self.direccion + '\nCONTACTOS: ' + self.contactos)
