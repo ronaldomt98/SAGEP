@@ -1,4 +1,4 @@
-from .Model import Mueble
+from models.Mueble import Mueble
 
 class Armario(Mueble):
 

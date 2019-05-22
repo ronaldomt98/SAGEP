@@ -1,7 +1,7 @@
-from .Maquina import Maquina
+from models.Maquina import Maquina
+from persistent import Persistent
 
-
-class Prensa(Maquina):
+class Prensa(Maquina, Persistent):
     clave = "cepilladora"
 
     def get_clave(self):

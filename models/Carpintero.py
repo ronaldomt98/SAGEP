@@ -1,4 +1,6 @@
-class Carpintero:
+from persistent import Persistent
+
+class Carpintero(Persistent):
     clave = "carpintero"
 
     def get_clave(self):

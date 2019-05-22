@@ -1,4 +1,6 @@
-class Proveedor:
+from persistent import Persistent
+
+class Proveedor(Persistent):
     clave = "proveedor"
 
     def get_clave(self):

@@ -1,7 +1,7 @@
-from .Contacto import Contacto
+from models.Contacto import Contacto
+from persistent import Persistent
 
-
-class Telefono(Contacto):
+class Telefono(Contacto, Persistent):
     clave = "contacto"
 
     def get_clave(self):

@@ -1,9 +1,7 @@
 from abc import ABC
 
-from .Model import Model
 
-
-class Persona(ABC, Model):
+class Persona(ABC):
     contactos = []
 
     def __init__(self, nombre='', apellido='', cedula=0, direccion='No especificada', contactos=None):

@@ -1,7 +1,7 @@
-from .Maquina import Maquina
+from models.Maquina import Maquina
+from persistent import Persistent
 
-
-class SierraCircular(Maquina):
+class SierraCircular(Maquina, Persistent):
     clave = "sierra_circular"
 
     def get_clave(self):

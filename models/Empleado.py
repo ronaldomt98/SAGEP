@@ -1,7 +1,7 @@
 from .Persona import Persona
+from persistent import Persistent
 
-
-class Empleado(Persona):
+class Empleado(Persona, Persistent):
     muebles = []
     clave = "empleado"
 

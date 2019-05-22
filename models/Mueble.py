@@ -1,11 +1,11 @@
 from abc import ABC
-from .Vendible import Vendible
-from .Model import Model
+from models.Vendible import Vendible
 
 
-class Mueble(ABC, Vendible, Model):
+class Mueble(ABC, Vendible):
 
     def __init__(self, precio, imagen, fecha_venta, cliente):
+        super.__init__()
         self.precio = precio
         self.imagen = imagen
         self.fecha_venta = fecha_venta

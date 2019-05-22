@@ -1,6 +1,6 @@
 from abc import ABC
 
-from .Model import Model
+from models.Model import Model
 
 
 class Maquina(ABC, Model):

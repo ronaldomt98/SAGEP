@@ -1,4 +1,6 @@
-class Cliente:
+from persistent import Persistent
+
+class Cliente(Persistent):
     muebles = []
     clave = "cliente"
 
