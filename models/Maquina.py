@@ -1,9 +1,7 @@
 from abc import ABC
 
-from models.Model import Model
 
-
-class Maquina(ABC, Model):
+class Maquina(ABC):
 
     def __init__(self):
         super(Maquina, self).__init__()

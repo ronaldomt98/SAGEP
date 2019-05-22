@@ -1,6 +1,7 @@
 from models.Maquina import Maquina
 from persistent import Persistent
 
+
 class SierraCircular(Maquina, Persistent):
     clave = "sierra_circular"
 

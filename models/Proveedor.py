@@ -1,5 +1,6 @@
 from persistent import Persistent
 
+
 class Proveedor(Persistent):
     clave = "proveedor"
 

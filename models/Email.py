@@ -1,6 +1,7 @@
 from models.Contacto import Contacto
 from persistent import Persistent
 
+
 class Email(Contacto, Persistent):
     clave = "email"
 

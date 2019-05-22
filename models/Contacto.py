@@ -1,9 +1,7 @@
 from abc import ABC
 
-from .Model import Model
 
-
-class Contacto(ABC, Model):
+class Contacto(ABC):
 
     def __init__(self):
         pass

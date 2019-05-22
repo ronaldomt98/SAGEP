@@ -1,6 +1,7 @@
 from models.Maquina import Maquina
 from persistent import Persistent
 
+
 class Perforadora(Maquina, Persistent):
     clave = "perforadora"
 

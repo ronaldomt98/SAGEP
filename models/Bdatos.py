@@ -1,71 +1,91 @@
 from mizodb import MiZODB, transaction
+from models.Mueble import Mueble
+from models.Cliente import Cliente
+from models.Empleado import Empleado
 
 db = MiZODB('./Data')
 dbroot = db.raiz
 """CLASE ENCARGADA DE PERSISTIR LOS OBJETOS Y HACER LAS MODIFICACIONES DEL NEGOCIO Y 
 LAS DEVOLUCIONES QUE SE HACEN DESDE EL CONTROLADOR"""
-def inicializarStock():
-	dbroot['Silla Grande']=1000
-	dbroot['Silla Pequena']=400
-	dbroot['Mesa Rectangulo']=200
-	dbroot['Mesa Redonda']=100
-	dbroot['Cubre']=100
-	dbroot['Vaso']=200
-	dbroot['Plato']=200
-	dbroot['Aparejo']=200
 
 
-def guardarCliente(clave,valor):
-	dbroot[clave]=valor
+def inicializar_stock():
+    dbroot['armario'] = 0
+    dbroot['escritorio'] = 0
+    dbroot['taburete'] = 0
+    dbroot['estanteria'] = 0
+    dbroot['silla'] = 0
+    dbroot['vitrina'] = 0
+    dbroot['cama'] = 0
+    dbroot['mesa'] = 0
+    dbroot['comoda'] = 0
 
-def guardarEmpleado(clave, valor):
-	dbroot[clave]=valor
 
-def obtenerCliente(clave):
-	"""para retornar un cliente segun la clave que se le pasa"""
-	try :
-		if( dbroot[clave] != None):
-			return dbroot[clave]
-		else:
-			raise(KeyError)
-	except KeyError:
-		print( 'CLIERNTE NO ENCONTRADO \nVERIFICAR LA C.I.: ',clave)
+def registrar(clave, valor):
+    dbroot[clave] = valor
 
-def obtenerEmpleado(clave):
-	"""para retornar un empleado segun la clave que se le pasa"""
-	try :
-		if( dbroot[clave] != None):
-			return dbroot[clave]
-		else:
-			raise(KeyError)
-	except KeyError:
-		print( 'EMPLEADO NO ENCONTRADO \nVERIFICAR LA C.I.: ',clave)
 
-def obtenerDeposito(clave):
-	"""para retornar la cantidad en stock que existe de ese objeto(ejemplo un ropero)"""
-	try :
-		return dbroot[clave]
-	except ValueError:
-		return None
+def obtener(clave):
+    """para retornar un objeto segun la clave que se le pasa"""
+    try:
+        if dbroot[clave] is not None:
+            return dbroot[clave]
+        else:
+            raise KeyError
+    except KeyError:
+        print('CLIERNTE NO ENCONTRADO \nVERIFICAR LA C.I.: ', clave)
 
-def venderMueble(clave, cantidad):
-	try:
-		dbroot[clave] -= cantidad
-		transaction.commit()
-		return True
-	except ValueError:
-			return False
 
-def fabricarMueble(clave,cantidad):
-	try:
-		dbroot[clave]+=cantidad
-		transaction.commit()
-		return True
-	except ValueError:
-			return False
-			
+def vender_mueble(clave, cantidad):
+    try:
+        dbroot[clave] -= cantidad
+        transaction.commit()
+        return True
+    except ValueError:
+        return False
 
-def sustraerbienes(clave):
-	dbroot[clave].bienes_alquilados={'Silla Grande':0, 'Silla Pequena':0,
-	'Mesa Rectangulo':0, 'Mesa Redonda':0, 'Cubre':0, 'Vaso':0, 'Plato':0, 'Aparejo':0}
-	transaction.commit()
+
+def fabricar_mueble(clave, cantidad):
+    try:
+        dbroot[clave] += cantidad
+        transaction.commit()
+        return True
+    except ValueError:
+        return False
+
+
+def cobrar(clave, monto):
+    try:
+        dbroot[clave] += monto
+        transaction.commit()
+        return True
+    except ValueError:
+        return False
+
+
+def obtener_ventas():
+    muebles = []
+    for key in dbroot.keys():
+        obj = dbroot[key]
+        if isinstance(obj, Mueble):
+            mueble = obj
+            if mueble.cliente is not None:
+                muebles.append(mueble)
+    return muebles
+
+
+def obtener_clientes():
+    clientes = []
+    for key in dbroot.keys():
+        obj = dbroot[key]
+        if isinstance(obj, Cliente):
+            clientes.append(obj)
+    return clientes
+
+def obtener_empleados():
+    empleados = []
+    for key in dbroot.keys():
+        obj = dbroot[key]
+        if isinstance(obj, Empleado):
+            empleados.append(obj)
+    return empleados

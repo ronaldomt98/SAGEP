@@ -27,5 +27,5 @@ class Persona(ABC):
         return self.contactos
 
     def __str__(self):
-        return ('\nNOMBRES Y APELLIDOS: ' + self.nombre + ' ' + self.apellido + '\nCEDULA: ' + self.cedula
+        return ('\nNOMBRES Y APELLIDOS: ' + self.nombre + ' ' + self.apellido + '\nCEDULA: ' + str(self.cedula)
                 + '\nDIRECCION: ' + self.direccion + '\nCONTACTOS: ' + self.contactos)

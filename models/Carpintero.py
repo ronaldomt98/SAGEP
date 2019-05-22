@@ -1,5 +1,6 @@
 from persistent import Persistent
 
+
 class Carpintero(Persistent):
     clave = "carpintero"
 
