@@ -1,4 +1,4 @@
-from .Persona import Persona
+from models import Persona
 from persistent import Persistent
 
 
@@ -10,7 +10,7 @@ class Empleado(Persona, Persistent):
         return self.clave
 
     def __init__(self, cargo, salario, fecha_ingreso, muebles, **kwargs):
-        super().__init__(**kwargs)
+        Persona().__init__(**kwargs)
         self.cargo = cargo
         self.salario = salario
         self.fecha_ingreso = fecha_ingreso
@@ -35,4 +35,4 @@ class Empleado(Persona, Persistent):
         pass
 
     def __str__(self):
-        return super().__str__() + '\nCargo: ' + self.cargo + '\nMuebles:\n' + str(self.muebles)
+        return Persona().__str__() + '\nCargo: ' + self.cargo + '\nMuebles:\n' + str(self.muebles)

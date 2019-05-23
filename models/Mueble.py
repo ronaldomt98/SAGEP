@@ -15,7 +15,7 @@ class Mueble(Vendible):
         pass
 
     def vender(self, cliente):
-        pass
+        self.cliente = cliente
 
     def __str__(self):
         return ('\nPrecio: ' + self.precio + '\nFecha_venta: ' + self.fecha_venta

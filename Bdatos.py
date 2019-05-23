@@ -1,10 +1,12 @@
-from mizodb import MiZODB, transaction
-from models.Mueble import Mueble
+import transaction
 from models.Cliente import Cliente
 from models.Empleado import Empleado
+from models.Mueble import Mueble
+
+from MiZODB import MiZODB
 
 db = MiZODB('./Data')
-dbroot = db.raiz
+dbroot = db.root
 """CLASE ENCARGADA DE PERSISTIR LOS OBJETOS Y HACER LAS MODIFICACIONES DEL NEGOCIO Y 
 LAS DEVOLUCIONES QUE SE HACEN DESDE EL CONTROLADOR"""
 
@@ -81,6 +83,7 @@ def obtener_clientes():
         if isinstance(obj, Cliente):
             clientes.append(obj)
     return clientes
+
 
 def obtener_empleados():
     empleados = []

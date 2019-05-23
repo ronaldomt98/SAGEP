@@ -19,8 +19,8 @@ class Cliente(Persistent):
     def obtener_muebles(self):
         return self.muebles
 
-    def comprar(self, bien, cantidad):
-        pass
+    def comprar(self, bien):
+        self.muebles.append(bien)
 
     def __str__(self):
         return '\nPersona: ' + str(self.muebles) + '\nRUC: ' + self.ruc + '\nMuebles:\n' + str(self.muebles)

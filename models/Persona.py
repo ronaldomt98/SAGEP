@@ -4,7 +4,7 @@ from abc import ABC
 class Persona(ABC):
     contactos = []
 
-    def __init__(self, nombre='', apellido='', cedula=0, direccion='No especificada', contactos=None):
+    def __init__(self, nombre, apellido, cedula, direccion, contactos=None):
         self.nombre = nombre
         self.apellido = apellido
         self.cedula = cedula
