@@ -1,73 +1,75 @@
-from controller.Controller import *
+from controller.Controller import Controller
 from models.Cliente import Cliente
 
 from tkinter import *
-from tkinter import font
 from tkinter import messagebox
-import tkinter.ttk as ttk
 
+root=Tk()
+root.title("SAGEP")
 tamano = '600x400+480+195'
 
+varOpcion=IntVar()
+barraMenu=Menu(root)
+root.config(menu=barraMenu, width=800, height=650)
+c=Controller()
 
-class agregar_cliente():
 
-    def __init__(self, ventana):
-        self.ventana = ventana
-        self.iniciar(self.ventana)
+#def __init__(self, ventana):
+#   self.ventana = ventana
+#    self.iniciar(self.ventana)
 
-    def iniciar(self, ventana):
+#def iniciar(self, ventana):
+#    pass
 
-        'Tipo de fuente de la letra'
-        self.ComicSansMS = font.Font(family="Comic Sans MS", size=13, weight="bold")
+def vista_agregar_cliente():
 
-        self.nuev_clien = Toplevel(ventana)
-        self.nuev_clien.config(bg="white")
-        self.nuev_clien.resizable(0, 0)
-        self.nuev_clien.geometry(tamano)
-        self.nuev_clien.title("AGREGAR CLIENTE")
-        self.nuev_clien.grab_set()
+    root = Toplevel()
+    root.title("Agregar Cliente")
+    root.geometry('720x650')
+    label_0 = Label(root, text="Cliente", width=20, font=("bold", 20))
+    label_0.place(x=160, y=20)
+    miFrame = Frame(root)
+    miFrame.pack()
+    miFrame.place(x=100, y=100)
 
-        '''intancia las notebook(pestañas)'''
-        self.pestana = ttk.Notebook(self.nuev_clien)
-        self.pestana.pack(fill='both', expand='yes')
+    nombre = StringVar(miFrame)
+    cuadroNombre = Entry(miFrame, textvariable=nombre)
+    cuadroNombre.grid(row=0, column=1)
+    nombreLabel = Label(miFrame, text="Nombre: ")
+    nombreLabel.grid(row=0, column=0, sticky="e")
 
-        '''se istancias los frames que va contener los labeles, etc'''
-        self.frmcli = Frame(self.pestana, bg='White', highlightthickness=2, highlightbackground='black')
-        self.frmbien = Frame(self.pestana, bg='White', highlightthickness=2, highlightbackground='black')
+    apellido = StringVar(miFrame)
+    cuadroApellido = Entry(miFrame, textvariable=apellido)
+    cuadroApellido.grid(row=1, column=1)
+    apellido = Label(miFrame, text="Apellido: ")
+    apellido.grid(row=1, column=0, sticky="e")
 
-        '''se agrega los frames a las pestañas'''
-        self.pestana.add(self.frmcli, text='Cliente')
+    ci = StringVar(miFrame)
+    cuadroCi = Entry(miFrame, textvariable=ci)
+    cuadroCi.grid(row=1, column=1)
+    ciLabel = Label(miFrame, text="C.I: ")
+    ciLabel.grid(row=1, column=0, sticky="e")
 
-        Label(self.frmcli, text="Cedula:", bg='White', fg='red', font=self.ComicSansMS).place(x=60, y=27)
-        self.cedula = Entry(self.frmcli)
-        self.cedula.focus()
-        self.cedula.place(x=160, y=30)
+    ruc = StringVar(miFrame)
+    cuadroRuc = Entry(miFrame, textvariable=ruc)
+    cuadroRuc.grid(row=1, column=1)
+    rucLabel = Label(miFrame, text="Ruc: ")
+    rucLabel.grid(row=1, column=0, sticky="e")
 
-        Label(self.frmcli, text="Ruc:", bg='White', fg='red', font=self.ComicSansMS).place(x=60, y=72)
-        self.ruc = Entry(self.frmcli)
-        self.ruc.focus()
-        self.ruc.place(x=160, y=75)
+    telefono = StringVar(miFrame)
+    cuadroTelefono = Entry(miFrame, textvariable=telefono)
+    cuadroTelefono.grid(row=2, column=1)
+    telefonoLabel = Label(miFrame, text="Telefono: ")
+    telefonoLabel.grid(row=2, column=0, sticky="e")
 
-        Label(self.frmcli, text="Nombre: ", bg='White', font=self.ComicSansMS).place(x=60, y=117)
-        self.nombre = Entry(self.frmcli)
-        self.nombre.place(x=160, y=120)
+    direccion = StringVar(miFrame)
+    cuadroDireccion = Entry(miFrame, textvariable=direccion)
+    cuadroDireccion.grid(row=4, column=1)
+    direccionLabel = Label(miFrame, text="Direccion: ")
+    direccionLabel.grid(row=4, column=0, sticky="e")
 
-        Label(self.frmcli, text="Apellido: ", bg='White', font=self.ComicSansMS).place(x=60, y=162)
-        self.apellido = Entry(self.frmcli)
-        self.apellido.place(x=160, y=165)
-
-        Label(self.frmcli, text="Direccion: ", bg='White', font=self.ComicSansMS).place(x=60, y=207)
-        self.direccion = Entry(self.frmcli)
-        self.direccion.place(x=160, y=210)
-
-        Label(self.frmcli, text="Telefono: ", bg='White', font=self.ComicSansMS).place(x=60, y=252)
-        self.telefono = Entry(self.frmcli)
-        self.telefono.place(x=160, y=255)
-
-        self.btonAgregar = Button(self.nuev_clien, text="Guardar", command=self.add_cliente)
-        self.btonAgregar.place(x=430, y=365)
-
-        Button(self.nuev_clien, text="Cancelar", command=self.nuev_clien.destroy).place(x=510, y=365)
+    Button(root, text='Guardar', width=20, bg='white', fg='white', command=add_cliente().place(x=120, y=580))
+    Button(root, text='Salir', width=20, bg='white', fg='white', command=root.destroy).place(x=360, y=580)
 
     def add_cliente(self):
         ci = self.cedula.get()
@@ -79,9 +81,9 @@ class agregar_cliente():
 
         try:
             self.validar(ci)
-            nuevoCliente = Cliente(nombre=nom, apellido=ape, cedula=int(ci),
-                           direccion=dire, contactos=telef, ruc=ruc, muebles=None)
-            self.nuev_clien.destroy()
+            Label(root, text="Empleado Registrado").place(x=255, y=60)
+            nuevoCliente = Cliente(ci, ruc, nom, ape, dire, telef)
+            self.root.destroy()
 
             Controller.agregar_cliente(self,ci, nuevoCliente)
         except Exception as e:
