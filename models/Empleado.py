@@ -1,4 +1,4 @@
-from models import Persona
+from models.Persona import Persona
 from persistent import Persistent
 
 
@@ -9,8 +9,8 @@ class Empleado(Persona, Persistent):
     def get_clave(self):
         return self.clave
 
-    def __init__(self, cargo, salario, fecha_ingreso, muebles, **kwargs):
-        Persona().__init__(**kwargs)
+    def __init__(self, cargo, salario, fecha_ingreso, muebles = None, **kwargs):
+        super().__init__(**kwargs)
         self.cargo = cargo
         self.salario = salario
         self.fecha_ingreso = fecha_ingreso
@@ -27,9 +27,6 @@ class Empleado(Persona, Persistent):
 
     def obtener_muebles(self):
         return self.muebles
-
-    def comprar(self, bien, cantidad):
-        pass
 
     def vender(self, bien, cantidad):
         pass

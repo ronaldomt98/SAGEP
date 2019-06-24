@@ -1,10 +1,16 @@
-from abc import ABC
+from abc import ABCMeta, abstractmethod
 
+class Vendible(object):
 
-class Vendible(ABC):
+    __metaclass__ = ABCMeta
 
     def __init__(self):
         pass
 
-    def vender(self, cliente):
+    @abstractmethod
+    def vender():
+        pass
+
+    @abstractmethod
+    def devolver():
         pass

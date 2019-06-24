@@ -1,5 +1,6 @@
+'''SISTEMA DE ADMINISTRACION Y GESTION DE PRODUCTOS'''
 import os
-from view import View
+from view.View import View
 from Bdatos import inicializar_stock
 from controller.Controller import Controller
 
@@ -14,7 +15,6 @@ class App ():
 
 	'''OPCIONES QUE LA APLICACION PERMITE ELEGIR AL USUARIO'''
 	def menu ():
-		c = Controller()
 		opmenu=0 #variable que controla el menu principal de las operaciones
 		while (opmenu != 6):
 			print('▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼'.center(80, '▼'))
@@ -32,13 +32,13 @@ class App ():
 			opmenu = input_rango("UD. PUEDE ELEGIR", 1, 6)
 			print("▬▬▬▬▬▬▬▬".center(32, "▬"))
 			if opmenu == 1 :
-				c.agregar_cliente()
+				Controller.agregar_cliente()
 			if opmenu == 2 :
 				View.leer_cedula()
 			if opmenu == 3 :
 				Controller.listar_clientes()
 			if opmenu == 4 :
-				Controller.vender_mueble()
+				Controller.vender()
 			if opmenu == 5 :
 				Controller.agregar_mueble()
 			if opmenu == 6 :

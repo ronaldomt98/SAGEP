@@ -3,11 +3,11 @@ from persistent import Persistent
 
 
 class Telefono(Contacto, Persistent):
-    clave = "contacto"
+    clave = "telefono"
 
     def get_clave(self):
         return self.clave
 
     def __init__(self, numero):
-        super(Telefono, self).__init__()
+        super().__init__()
         self.numero = numero

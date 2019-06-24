@@ -1,7 +1,9 @@
 from persistent import Persistent
+from models.Persona import Persona
+from models.Mueble import Mueble
 
-
-class Carpintero(Persistent):
+'''CLASE QUE HEREDA DE Persona'''
+class Carpintero(Persona,Persistent):
     clave = "carpintero"
 
     def get_clave(self):
@@ -10,7 +12,7 @@ class Carpintero(Persistent):
     def __init__(self, empleado):
         self.empleado = empleado
 
-    def fabricar_mueble(self, bien, cantidad):
+    def fabricar_mueble(self, mueble, cantidad):
         pass
 
     def __str__(self):

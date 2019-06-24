@@ -1,6 +1,7 @@
 from models.Cliente import Cliente
 from models.Persona import Persona
 
+'''Valida que un valor ingresado este entre cierto rango de valores'''
 def input_rango(text, men, may):
     while True:
         valor = input("{} [{}] al [{}] >>> ".format(text, men, may))
@@ -14,7 +15,6 @@ def input_rango(text, men, may):
             print("\n[" + str(valor) + "] NO ES UNA DE LAS OPCIONES OFRECIDAS :(\n\t VUELVA A INTENTARLO ;)\n")
 
 
-'''Valida que un valor ingresado este entre cierto rango de valores'''
 
 
 class View():
@@ -61,6 +61,6 @@ class View():
         pass
 
 
-    def vista_vender_mueble(self):
+    def vista_vender(self):
         pass
 

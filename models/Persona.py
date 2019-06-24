@@ -1,7 +1,8 @@
-from abc import ABC
+from abc import ABCMeta
 
+class Persona(object):
 
-class Persona(ABC):
+    __metaclass__ = ABCMeta
     contactos = []
 
     def __init__(self, nombre, apellido, cedula, direccion, contactos=None):

@@ -1,15 +1,15 @@
 from persistent import Persistent
+from models.Persona import Persona
 
-
-class Cliente(Persistent):
+class Cliente(Persona, Persistent):
     muebles = []
     clave = "cliente"
 
     def get_clave(self):
         return self.clave
 
-    def __init__(self, persona, ruc, muebles):
-        self.persona = persona
+    def __init__(self, ruc = 'ninguno', muebles = None, **kwargs):
+        super().__init__(**kwargs)
         self.ruc = ruc
         self.muebles = muebles
 
@@ -23,4 +23,4 @@ class Cliente(Persistent):
         self.muebles.append(bien)
 
     def __str__(self):
-        return '\nPersona: ' + str(self.muebles) + '\nRUC: ' + self.ruc + '\nMuebles:\n' + str(self.muebles)
+        return super().__str__() + str(self.muebles) + '\nRUC: ' + self.ruc + '\nMuebles:\n' + str(self.muebles)

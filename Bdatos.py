@@ -12,33 +12,50 @@ LAS DEVOLUCIONES QUE SE HACEN DESDE EL CONTROLADOR"""
 
 
 def inicializar_stock():
-    dbroot['armario'] = 0
-    dbroot['escritorio'] = 0
-    dbroot['taburete'] = 0
-    dbroot['estanteria'] = 0
-    dbroot['silla'] = 0
-    dbroot['vitrina'] = 0
-    dbroot['cama'] = 0
-    dbroot['mesa'] = 0
-    dbroot['comoda'] = 0
+    dbroot['armario'] = 2
+    dbroot['escritorio'] = 3
+    dbroot['taburete'] = 2
+    dbroot['estanteria'] = 3
+    dbroot['silla'] = 2
+    dbroot['vitrina'] = 3
+    dbroot['cama'] = 2
+    dbroot['mesa'] = 3
+    dbroot['comoda'] = 1
 
 
-def registrar(clave, valor):
+def guardar_cliente(clave, valor):
     dbroot[clave] = valor
+    transaction.commit()
 
 
-def obtener(clave):
-    """para retornar un objeto segun la clave que se le pasa"""
+def guardar_empleado(clave, valor):
+    dbroot[clave] = valor
+    transaction.commit()
+
+
+def obtener_cliente(clave):
+    """para retornar un cliente segun la clave(CI) que se le pasa"""
     try:
-        if dbroot[clave] is not None:
+        if (dbroot[clave] != None):
             return dbroot[clave]
         else:
-            raise KeyError
+            raise (KeyError)
     except KeyError:
         print('CLIERNTE NO ENCONTRADO \nVERIFICAR LA C.I.: ', clave)
 
 
-def vender_mueble(clave, cantidad):
+def obtener_empleado(clave):
+    """para retornar un empleado segun la clave(CI) que se le pasa"""
+    try:
+        if (dbroot[clave] != None):
+            return dbroot[clave]
+        else:
+            raise (KeyError)
+    except KeyError:
+        print('EMPLEADO NO ENCONTRADO \nVERIFICAR LA C.I.: ', clave)
+
+
+def vender(clave, cantidad):
     try:
         dbroot[clave] -= cantidad
         transaction.commit()
@@ -92,3 +109,13 @@ def obtener_empleados():
         if isinstance(obj, Empleado):
             empleados.append(obj)
     return empleados
+
+
+def devolver(clave,cantidad):
+    try:
+        dbroot[clave]+=cantidad
+        transaction.commit()
+        return True
+    except ValueError:
+        return False
+
