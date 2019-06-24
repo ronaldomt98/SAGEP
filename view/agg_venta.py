@@ -28,7 +28,7 @@ class agregar_venta():
         self.ven_mue.grab_set()
 
         '''intancia las notebook(pestañas)'''
-        self.pestana = ttk.Notebook(self.ven_pedi)
+        self.pestana = ttk.Notebook(self.ven_mue)
         self.pestana.pack(fill='both', expand='yes')
 
         '''se istancias los frames que va contener los labeles, etc'''

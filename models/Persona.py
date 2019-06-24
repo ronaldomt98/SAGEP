@@ -5,7 +5,7 @@ class Persona(object):
     __metaclass__ = ABCMeta
     contactos = []
 
-    def __init__(self, nombre, apellido, cedula, direccion, contactos=None):
+    def __init__(self, nombre, apellido, cedula, direccion, contactos):
         self.nombre = nombre
         self.apellido = apellido
         self.cedula = cedula

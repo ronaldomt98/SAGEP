@@ -28,7 +28,7 @@ class agregar_cliente():
         self.nuev_clien.grab_set()
 
         '''intancia las notebook(pestañas)'''
-        self.pestana = ttk.Notebook(self.ven_pedi)
+        self.pestana = ttk.Notebook(self.nuev_clien)
         self.pestana.pack(fill='both', expand='yes')
 
         '''se istancias los frames que va contener los labeles, etc'''
@@ -38,10 +38,15 @@ class agregar_cliente():
         '''se agrega los frames a las pestañas'''
         self.pestana.add(self.frmcli, text='Cliente')
 
-        Label(self.frmcli, text="Cedula:", bg='White', fg='red', font=self.ComicSansMS).place(x=60, y=25)
+        Label(self.frmcli, text="Cedula:", bg='White', fg='red', font=self.ComicSansMS).place(x=60, y=27)
         self.cedula = Entry(self.frmcli)
         self.cedula.focus()
         self.cedula.place(x=160, y=30)
+
+        Label(self.frmcli, text="Ruc:", bg='White', fg='red', font=self.ComicSansMS).place(x=60, y=72)
+        self.ruc = Entry(self.frmcli)
+        self.ruc.focus()
+        self.ruc.place(x=160, y=75)
 
         Label(self.frmcli, text="Nombre: ", bg='White', font=self.ComicSansMS).place(x=60, y=117)
         self.nombre = Entry(self.frmcli)
@@ -62,7 +67,7 @@ class agregar_cliente():
         self.btonAgregar = Button(self.nuev_clien, text="Guardar", command=self.add_cliente)
         self.btonAgregar.place(x=430, y=365)
 
-        Button(self.ven_pedi, text="Cancelar", command=self.ven_clien.destroy).place(x=510, y=365)
+        Button(self.nuev_clien, text="Cancelar", command=self.nuev_clien.destroy).place(x=510, y=365)
 
     def add_cliente(self):
         ci = self.cedula.get()
@@ -75,9 +80,14 @@ class agregar_cliente():
         try:
             self.validar(ci)
             nuevoCliente = Cliente(nombre=nom, apellido=ape, cedula=int(ci),
-                           direccion=dire, telefono=telef, ruc=ruc, muebles=None)
+                           direccion=dire, contactos=telef, ruc=ruc, muebles=None)
             self.nuev_clien.destroy()
 
-            Controller.agregar_cliente(ci, nuevoCliente)
+            Controller.agregar_cliente(self,ci, nuevoCliente)
         except Exception as e:
             messagebox.askyesno("ERROR", e)
+
+
+    def validar(self, valor):
+        if not valor.isdigit():
+            raise Exception("Debe ser un valor numerico")

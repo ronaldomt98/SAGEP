@@ -41,7 +41,7 @@ class devolver():
         try:
             self.validar(ci)
             self.ven_devo.destroy()
-            Controller.devolver_mueble(ci)
+            Controller.devolver_mueble(self,ci)
             messagebox.showinfo('Aviso', 'EXITO AL DEVOLVER')
         except Exception as e:
             messagebox.askyesno("ERROR", e)
