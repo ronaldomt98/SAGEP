@@ -2,7 +2,6 @@ from persistent import Persistent
 from models.Persona import Persona
 
 class Cliente(Persona, Persistent):
-    muebles = []
     clave = "cliente"
 
     def get_clave(self):

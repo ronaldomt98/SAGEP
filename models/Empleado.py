@@ -9,11 +9,10 @@ class Empleado(Persona, Persistent):
     def get_clave(self):
         return self.clave
 
-    def __init__(self, cargo, salario, fecha_ingreso, muebles = None, **kwargs):
+    def __init__(self, cargo, salario, muebles = None, **kwargs):
         super().__init__(**kwargs)
         self.cargo = cargo
         self.salario = salario
-        self.fecha_ingreso = fecha_ingreso
         self.muebles = muebles
 
     def obtener_cargo(self):
@@ -21,9 +20,6 @@ class Empleado(Persona, Persistent):
 
     def obtener_salario(self):
         return self.salario
-
-    def obtener_fecha_ingreso(self):
-        return self.fecha_ingreso
 
     def obtener_muebles(self):
         return self.muebles

@@ -2,36 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="be8b662d-4fcd-49da-b069-537c3b966470" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Apptk.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/ViewTk.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/agg_cliente.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/agg_empleado.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/agg_venta.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/devolver.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/listAll.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.py" beforeDir="false" afterPath="$PROJECT_DIR$/App.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bdatos.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bdatos.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Data.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/Controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Armario.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Armario.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Cama.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Cama.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Carpintero.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Carpintero.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Cliente.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Cliente.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Comoda.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Comoda.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Contacto.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Contacto.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Empleado.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Empleado.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Escritorio.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Escritorio.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Estanteria.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Estanteria.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Mesa.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Mesa.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Mueble.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Mueble.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Persona.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Persona.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Silla.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Silla.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Taburete.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Taburete.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Telefono.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Telefono.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Vendible.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Vendible.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Vitrina.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Vitrina.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/View.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/View.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,7 +15,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/Mueble.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
+            <state relative-caret-position="17">
               <caret line="2" selection-start-line="2" selection-end-line="2" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
@@ -86,7 +57,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/agg_empleado.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1003">
+            <state relative-caret-position="17">
               <caret line="1" column="31" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
             </state>
           </provider>
@@ -95,7 +66,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/listAll.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
+            <state relative-caret-position="629">
               <caret line="40" column="55" selection-start-line="40" selection-start-column="55" selection-end-line="40" selection-end-column="55" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
@@ -107,7 +78,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Apptk.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
+            <state relative-caret-position="85">
               <caret line="7" column="5" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
@@ -119,7 +90,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/devolver.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-68">
+            <state relative-caret-position="85">
               <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
@@ -131,7 +102,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Bdatos.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
+            <state relative-caret-position="1530">
               <caret line="95" column="4" selection-start-line="95" selection-start-column="4" selection-end-line="95" selection-end-column="4" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
@@ -222,7 +193,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="673" />
     <option name="width" value="694" />
     <option name="height" value="735" />
@@ -235,40 +206,14 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane" />
       <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="SAGEP" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SAGEP" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SAGEP" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SAGEP" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SAGEP" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SAGEP" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SAGEP" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SAGEP" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="icons" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/view" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
@@ -422,10 +367,9 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="673" y="0" width="694" height="735" extended-state="0" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1376" height="744" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25914633" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1270553" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -672,9 +616,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/App.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="48" selection-start-column="48" selection-end-column="48" />
+          <folding>
+            <element signature="e#55#64#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/Controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/models/Mueble.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
+        <state relative-caret-position="17">
           <caret line="2" selection-start-line="2" selection-end-line="2" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
@@ -689,16 +650,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="48" selection-start-column="48" selection-end-column="48" />
-          <folding>
-            <element signature="e#55#64#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/view/ViewTk.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -708,22 +659,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/view/agg_empleado.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1003">
+        <state relative-caret-position="17">
           <caret line="1" column="31" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/Controller.py">
+    <entry file="file://$PROJECT_DIR$/view/listAll.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/devolver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-68">
-          <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+        <state relative-caret-position="629">
+          <caret line="40" column="55" selection-start-line="40" selection-start-column="55" selection-end-line="40" selection-end-column="55" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
@@ -732,8 +676,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Apptk.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
+        <state relative-caret-position="85">
           <caret line="7" column="5" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/devolver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
@@ -742,20 +696,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Bdatos.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
+        <state relative-caret-position="1530">
           <caret line="95" column="4" selection-start-line="95" selection-start-column="4" selection-end-line="95" selection-end-column="4" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/listAll.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="40" column="55" selection-start-line="40" selection-start-column="55" selection-end-line="40" selection-end-column="55" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>

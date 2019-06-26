@@ -5,15 +5,17 @@ class Mueble(Vendible):
 
     __metaclass__ = ABCMeta
 
-    def __init__(self, precio, imagen , fecha_venta, cliente):
+    def __init__(self, precio, cantidad, cliente = None):
         super().__init__()
         self.precio = precio
-        self.imagen = imagen
-        self.fecha_venta = fecha_venta
+        self.cantidad = cantidad
         self.cliente = cliente
 
     def obtener_precio(self):
         return self.precio
+
+    def obtener_cantidad(self):
+        return self.cantidad
 
     def obtener_imagen(self):
         return self.imagen

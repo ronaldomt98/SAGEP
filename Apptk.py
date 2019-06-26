@@ -1,8 +1,10 @@
 from tkinter import *
+
 from Bdatos import inicializar_stock
-from view.ViewTk import ViewTk
+from view.tkPrincial import TkPrincipal
+
+
 
 inicializar_stock()
-
-ventana = Tk()
-ViewTk(ventana)
+root = Tk()
+TkPrincipal(root)

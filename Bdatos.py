@@ -2,7 +2,7 @@ import transaction
 from models.Cliente import Cliente
 from models.Empleado import Empleado
 from models.Mueble import Mueble
-
+from Stock import Stock
 from MiZODB import MiZODB
 
 db = MiZODB('./Data')
@@ -12,20 +12,24 @@ LAS DEVOLUCIONES QUE SE HACEN DESDE EL CONTROLADOR"""
 
 
 def inicializar_stock():
-    dbroot['armario'] = 2
-    dbroot['escritorio'] = 3
-    dbroot['taburete'] = 2
-    dbroot['estanteria'] = 3
-    dbroot['silla'] = 2
-    dbroot['vitrina'] = 3
-    dbroot['cama'] = 2
-    dbroot['mesa'] = 3
-    dbroot['comoda'] = 1
-
+    dbroot['armario'] = 10
+    dbroot['cama'] = 10
+    dbroot['comoda'] = 10
+    dbroot['escritorio'] = 10
+    dbroot['estanteria'] = 10
+    dbroot['mesa'] = 10
+    dbroot['silla'] = 10
+    dbroot['taburete'] = 10
+    dbroot['vitrina'] = 10
+    transaction.commit()
 
 def guardar_cliente(clave, valor):
     dbroot[clave] = valor
     transaction.commit()
+
+def actualizar_cliente(clave,valor):
+	dbroot[clave] = valor
+	transaction.commit()
 
 
 def guardar_empleado(clave, valor):
@@ -53,24 +57,6 @@ def obtener_empleado(clave):
             raise (KeyError)
     except KeyError:
         print('EMPLEADO NO ENCONTRADO \nVERIFICAR LA C.I.: ', clave)
-
-
-def vender(clave, cantidad):
-    try:
-        dbroot[clave] -= cantidad
-        transaction.commit()
-        return True
-    except ValueError:
-        return False
-
-
-def fabricar_mueble(clave, cantidad):
-    try:
-        dbroot[clave] += cantidad
-        transaction.commit()
-        return True
-    except ValueError:
-        return False
 
 
 def cobrar(clave, monto):
@@ -110,12 +96,64 @@ def obtener_empleados():
             empleados.append(obj)
     return empleados
 
+def obtener_stock():
+    stock = []
+#    stock.append(dbroot['armario'])
+#    stock.append(dbroot['cama'])
+#    stock.append(dbroot['comoda'])
+#    stock.append(dbroot['escritorio'])
+#    stock.append(dbroot['estanteria'])
+#    stock.append(dbroot['mesa'])
+#    stock.append(dbroot['silla'])
+#    stock.append(dbroot['taburete'])
+#    stock.append(dbroot['vitrina'])
+    for key in dbroot.keys():
+        obj = dbroot[key]
+        if isinstance(obj, Mueble):
+            stock.append(obj)
+    return stock
 
-def devolver(clave,cantidad):
+def devolver(clave, cantidad):
     try:
-        dbroot[clave]+=cantidad
+        stock = Stock()
+        stock = dbroot[clave]
+        stock.cantidad = stock.cantidad +cantidad
         transaction.commit()
         return True
     except ValueError:
         return False
 
+
+def agregar_mueble(clave, cantidad):
+    try:
+        stock = Stock()
+        stock = dbroot[clave]
+        stock.cantidad = stock.cantidad +cantidad
+        dbroot[clave] += cantidad
+        transaction.commit()
+        return True
+    except ValueError:
+        return False
+
+
+def modificar_venta(clave,valor):
+    try:
+        stock = Stock()
+        stock = dbroot[clave]
+        if valor > stock.cantidad:
+            return False
+        stock.cantidad = stock.cantidad - valor
+        transaction.commit()
+        return True
+    except ValueError:
+        return False
+
+def modificar_compra(clave,valor):
+    try:
+        stock=Stock()
+        stock = dbroot[clave]
+        stock.cantidad = stock.cantidad + valor
+        transaction.commit()
+        return True
+    except ValueError:
+        return False
