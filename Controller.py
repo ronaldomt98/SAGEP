@@ -13,8 +13,8 @@ class Controller:
         respuesta = obtener_cliente(ci)
         view.vista_mostrar_cliente(respuesta)
 
-    def agregar_cliente(self, cliente):
-        guardar_cliente(cliente)
+    def agregar_cliente(self, ci,cliente):
+        guardar_cliente(ci,cliente)
 
     def listar_clientes(self):
         listaClientes = obtener_clientes()

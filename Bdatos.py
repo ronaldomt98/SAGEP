@@ -28,8 +28,8 @@ def guardar_cliente(clave, valor):
     transaction.commit()
 
 def actualizar_cliente(clave,valor):
-	dbroot[clave] = valor
-	transaction.commit()
+    dbroot[clave] = valor
+    transaction.commit()
 
 
 def guardar_empleado(clave, valor):

@@ -7,8 +7,8 @@ class Cliente(Persona, Persistent):
     def get_clave(self):
         return self.clave
 
-    def __init__(self, ruc = 'ninguno', muebles = None, **kwargs):
-        super().__init__(**kwargs)
+    def __init__(self, nombre, apellido, cedula, direccion, ruc = 'ninguno', muebles = None):
+        super().__init__(nombre, apellido, cedula, direccion)
         self.ruc = ruc
         self.muebles = muebles
 
