@@ -2,15 +2,25 @@ from abc import ABCMeta, abstractmethod
 
 class Vendible(object):
 
-    __metaclass__ = ABCMeta
-
     def __init__(self):
-        pass
+        self.precio = 0
+        self.codigo = 0
+        self.cantidad = 0
 
-    @abstractmethod
-    def vender():
-        pass
+    def vender(self, bien, cantidad):
+        if bien.vender(bien, cantidad) == False:
+            return False
+        else:
+            return True
 
-    @abstractmethod
-    def devolver():
-        pass
+    def comprar(self, bien, cantidad):
+        if bien.comprar(bien, cantidad) == False:
+            return False
+        else:
+            return True
+
+    def devolver(self, bien, cantidad):
+        if bien.devolver(bien, cantidad) == False:
+            return False
+        else:
+            return True

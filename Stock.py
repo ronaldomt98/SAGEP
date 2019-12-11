@@ -3,3 +3,4 @@ class Stock(Persistent):
 
 	def __init__(self):
 		self.cantidad=0
+		self.nombre = ""

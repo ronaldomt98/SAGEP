@@ -3,17 +3,15 @@ from persistent import Persistent
 
 
 class Empleado(Persona, Persistent):
-    muebles = []
     clave = "empleado"
 
     def get_clave(self):
         return self.clave
 
-    def __init__(self, cargo, salario, muebles = None, **kwargs):
-        super().__init__(**kwargs)
+    def __init__(self,nombre, apellido, cedula, direccion, contactos, cargo, salario):
+        super().__init__(nombre, apellido, cedula, direccion, contactos)
         self.cargo = cargo
         self.salario = salario
-        self.muebles = muebles
 
     def obtener_cargo(self):
         return self.cargo
@@ -21,11 +19,8 @@ class Empleado(Persona, Persistent):
     def obtener_salario(self):
         return self.salario
 
-    def obtener_muebles(self):
-        return self.muebles
-
     def vender(self, bien, cantidad):
         pass
 
     def __str__(self):
-        return Persona().__str__() + '\nCargo: ' + self.cargo + '\nMuebles:\n' + str(self.muebles)
+        return super().__str__() + '\nCargo: ' + self.cargo + self.salario

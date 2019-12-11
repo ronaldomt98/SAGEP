@@ -1,42 +1,47 @@
 from Bdatos import obtener_cliente, guardar_cliente, obtener_clientes, actualizar_cliente\
-    , devolver, guardar_empleado, obtener_empleados, obtener_stock
-from view.ViewTk import ViewTk
+    , devolver, guardar_empleado, obtener_empleados, obtener_stock, guardar_mueble\
+    , modificar_venta
 
-view = ViewTk()
+def agregar_mueble(mueble, cantidad):
+    guardar_mueble(mueble, cantidad)
 
-class Controller:
+def buscar_por_cedula(ci):
+    respuesta = obtener_cliente(ci)
+    return respuesta
 
-    def agregar_mueble(self,mueble):
-        self.fabricar_mueble(mueble)
+def agregar_cliente(ci,cliente):
+    guardar_cliente(ci,cliente)
 
-    def buscar_por_cedula(self,ci):
-        respuesta = obtener_cliente(ci)
-        view.vista_mostrar_cliente(respuesta)
+def agregar_empleado(ci, empleado):
+    guardar_empleado(ci,empleado)
 
-    def agregar_cliente(self, ci,cliente):
-        guardar_cliente(ci,cliente)
+def listar_clientes():
+    listaClientes = obtener_clientes()
+    return listaClientes
 
-    def listar_clientes(self):
-        listaClientes = obtener_clientes()
-        view.vista_listar_clientes(listaClientes)
+def listar_empleados():
+    listaEmpleados = obtener_empleados()
+    return listaEmpleados
 
-    def listar_empleados(self):
-        listaEmpleados = obtener_empleados()
-        view.vista_listar_empleados(listaEmpleados)
+def listar_stock(clave):
+    listaStock = obtener_stock(clave)
+    return listaStock
 
-    def listar_stock(self):
-        listaStock = obtener_stock()
-        view.vista_mostrar_muebles(listaStock)
+def devolver_mueble(ci, clave, cantidad):
+    '''
+    cliente = obtener_cliente(ci)
+    cliente.muebles.cantidad -= cantidad
+    actualizar_cliente(ci,cliente)
+    '''
+    devolver(ci, clave, cantidad)
 
-    def devolver_mueble(self,ci,clave,cantidad):
-        cliente = obtener_cliente(ci)
-        cliente.muebles.cantidad -= cantidad
-        actualizar_cliente(ci,cliente)
-        devolver(clave, cantidad)
+'''
+def agregar_venta(mueble, cliente, cantidad):
+    mueble.vender(cliente, cantidad)
+'''
+def agregar_venta(ci,mueble, cantidad):
+    modificar_venta(ci,mueble, cantidad)
 
+def agregar_empleado(ci, empleado):
+    guardar_empleado(ci, empleado)
 
-    def vender(self,mueble, cliente):
-        mueble.vender(cliente)
-
-    def agregar_empleado(self, ci, empleado):
-        guardar_empleado(ci,empleado)

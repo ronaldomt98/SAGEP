@@ -1,16 +1,21 @@
 from tkinter import *
-from Controller import Controller
+from Controller import *
 from Bdatos import inicializar_stock
 from tkinter import messagebox
 from models.Cliente import Cliente
 from models.Empleado import Empleado
-root=Tk()
-root.title("SAGEP")
+from models.Armario import Armario
+from models.Cama import Cama
+from models.Comoda import Comoda
+from models.Escritorio import Escritorio
+from models.Estanteria import Estanteria
+from models.Mesa import Mesa
+from models.Silla import Silla
+from models.Taburete import Taburete
+from models.Vitrina import Vitrina
 
-varOpcion=IntVar()
-barraMenu=Menu(root)
-root.config(menu=barraMenu, width=800, height=650)
-c=Controller()
+
+
 
 def vista_agregar_cliente():
     root = Toplevel()
@@ -34,17 +39,17 @@ def vista_agregar_cliente():
     apellidoLabel = Label(miFrame, text="Apellido: ")
     apellidoLabel.grid(row=1, column=0, sticky="e")
 
-    cedula = StringVar(miFrame)
+    cedula = IntVar(miFrame)
     cuadroCedula = Entry(miFrame, textvariable=cedula)
     cuadroCedula.grid(row=2, column=1)
     cedulaLabel = Label(miFrame, text="C.I: ")
     cedulaLabel.grid(row=2, column=0, sticky="e")
 
-    digitoVerificador = StringVar(miFrame)
-    cuadroDigitoVerificador = Entry(miFrame, textvariable=digitoVerificador)
-    cuadroDigitoVerificador.grid(row=3, column=1)
-    digitoVerificadorLabel = Label(miFrame, text="Digito Verificador: ")
-    digitoVerificadorLabel.grid(row=3, column=0, sticky="e")
+    ruc = StringVar(miFrame)
+    cuadroRuc= Entry(miFrame, textvariable=ruc)
+    cuadroRuc.grid(row=3, column=1)
+    rucLabel = Label(miFrame, text="Ruc: ")
+    rucLabel.grid(row=3, column=0, sticky="e")
 
     telefono = StringVar(miFrame)
     cuadroTelefono = Entry(miFrame, textvariable=telefono)
@@ -61,23 +66,25 @@ def vista_agregar_cliente():
 
     def add_cliente():
         ci = cedula.get()
-        digito = digitoVerificador.get()
+        rucCliente = ruc.get()
         nom = nombre.get()
         ape = apellido.get()
         dire = direccion.get()
         telef = telefono.get()
 
         try:
+            '''
             validar(ci)
-            nuevoCliente = Cliente(ci, digito, nom, ape, dire)
-            c.agregar_cliente(ci, nuevoCliente)
+            '''
+            nuevoCliente = Cliente(cedula=ci, ruc=rucCliente, nombre=nom, apellido=ape, direccion=dire, contactos=telef)
+            agregar_cliente(ci, nuevoCliente)
             messagebox.INFO("Cliente Registrado")
             root.destroy()
         except Exception as e:
             messagebox.askyesno("ERROR", e)
 
-    Button(root, text='Guardar', width=20, bg='white', fg='white', command=add_cliente).place(x=120, y=580)
-    Button(root, text='Salir', width=20, bg='white', fg='white', command=root.destroy).place(x=360, y=580)
+    Button(root, text='Guardar', width=20, bg='white', fg='black', command=add_cliente).place(x=120, y=580)
+    Button(root, text='Salir', width=20, bg='white', fg='black', command=root.destroy).place(x=360, y=580)
 
 
 def vista_agregar_empleado():
@@ -99,8 +106,8 @@ def vista_agregar_empleado():
     apellido = StringVar(miFrame)
     cuadroApellido = Entry(miFrame, textvariable=apellido)
     cuadroApellido.grid(row=1, column=1)
-    apellido = Label(miFrame, text="Apellido: ")
-    apellido.grid(row=1, column=0, sticky="e")
+    apellidoLabel = Label(miFrame, text="Apellido: ")
+    apellidoLabel.grid(row=1, column=0, sticky="e")
 
     cedula = StringVar(miFrame)
     cuadroCedula = Entry(miFrame, textvariable=cedula)
@@ -122,15 +129,15 @@ def vista_agregar_empleado():
 
     cargo = StringVar(miFrame)
     cuadroCargo = Entry(miFrame, textvariable=cargo)
-    cuadroCargo.grid(row=5, column=1)
+    cuadroCargo.grid(row=6, column=1)
     cargoLabel = Label(miFrame, text="Cargo: ")
-    cargoLabel.grid(row=5, column=0, sticky="e")
+    cargoLabel.grid(row=6, column=0, sticky="e")
 
     salario = StringVar(miFrame)
     cuadroSalario = Entry(miFrame, textvariable=salario)
-    cuadroSalario.grid(row=5, column=1)
+    cuadroSalario.grid(row=7, column=1)
     salarioLabel = Label(miFrame, text="Salario: ")
-    salarioLabel.grid(row=5, column=0, sticky="e")
+    salarioLabel.grid(row=7, column=0, sticky="e")
 
     def add_empleado():
         nomb = nombre.get()
@@ -142,18 +149,21 @@ def vista_agregar_empleado():
         sal = salario.get()
 
         try:
+            '''
             validar(ci)
             validar(sal)
-            nuevoEmpleado = Empleado(nomb, apell, ci, dir, telef, carg, sal)
-            c.guardar_empleado(nuevoEmpleado)
+            '''
+            nuevoEmpleado = Empleado(nombre=nomb, apellido=apell, cedula=ci, direccion=dir,
+                                     contactos=telef, cargo=carg, salario=sal)
+            agregar_empleado(ci,nuevoEmpleado)
             messagebox.INFO("Empleado Registrado")
             root.destroy()
         except Exception as e:
             messagebox.askyesno("ERROR", e)
 
 
-    Button(root, text='Registrar', width=20, bg='purple', fg='white', command= add_empleado).place(x=120, y=580)
-    Button(root, text='Salir', width=20, bg='purple', fg='white', command=root.destroy).place(x=360, y=580)
+    Button(root, text='Registrar', width=20, bg='white', fg='black', command= add_empleado).place(x=120, y=580)
+    Button(root, text='Salir', width=20, bg='white', fg='black', command=root.destroy).place(x=360, y=580)
 
 def vista_agregar_mueble():
     root = Toplevel()
@@ -165,73 +175,74 @@ def vista_agregar_mueble():
     miFrame.pack()
     miFrame.place(x=100, y=100)
 
-    armario = StringVar(miFrame)
+    armario = IntVar(miFrame)
     cuadroArmario= Entry(miFrame, textvariable=armario)
     cuadroArmario.grid(row=0, column=1)
     ArmarioLabel = Label(miFrame, text="Armario: ")
     ArmarioLabel.grid(row=0, column=0, sticky="e")
 
-    cama = StringVar(miFrame)
+    cama = IntVar(miFrame)
     cuadroCama= Entry(miFrame, textvariable= cama)
     cuadroCama.grid(row=1, column=1)
     camaLabel = Label(miFrame, text="Cama: ")
     camaLabel.grid(row=1, column=0, sticky="e")
 
-    comoda = StringVar(miFrame)
+    comoda = IntVar(miFrame)
     cuadroComoda= Entry(miFrame, textvariable= comoda)
-    cuadroComoda.grid(row=1, column=1)
+    cuadroComoda.grid(row=2, column=1)
     comodaLabel = Label(miFrame, text="Comoda: ")
-    comodaLabel.grid(row=1, column=0, sticky="e")
+    comodaLabel.grid(row=2, column=0, sticky="e")
 
-    escritorio = StringVar(miFrame)
+    escritorio = IntVar(miFrame)
     cuadroEscritorio= Entry(miFrame, textvariable= escritorio)
-    cuadroEscritorio.grid(row=1, column=1)
+    cuadroEscritorio.grid(row=3, column=1)
     escritorioLabel = Label(miFrame, text="Escritorio: ")
-    escritorioLabel.grid(row=1, column=0, sticky="e")
+    escritorioLabel.grid(row=3, column=0, sticky="e")
 
-    estanteria = StringVar(miFrame)
+    estanteria = IntVar(miFrame)
     cuadroEstanteria= Entry(miFrame, textvariable= estanteria)
-    cuadroEstanteria.grid(row=1, column=1)
+    cuadroEstanteria.grid(row=4, column=1)
     estanteriaLabel = Label(miFrame, text="Estanteria: ")
-    estanteriaLabel.grid(row=1, column=0, sticky="e")
+    estanteriaLabel.grid(row=4, column=0, sticky="e")
 
-    mesa = StringVar(miFrame)
+    mesa = IntVar(miFrame)
     cuadroMesa= Entry(miFrame, textvariable= mesa)
-    cuadroMesa.grid(row=1, column=1)
+    cuadroMesa.grid(row=5, column=1)
     mesaLabel = Label(miFrame, text="Mesa: ")
-    mesaLabel.grid(row=1, column=0, sticky="e")
+    mesaLabel.grid(row=5, column=0, sticky="e")
 
-    silla = StringVar(miFrame)
+    silla = IntVar(miFrame)
     cuadroSilla= Entry(miFrame, textvariable= silla)
-    cuadroSilla.grid(row=1, column=1)
+    cuadroSilla.grid(row=6, column=1)
     sillaLabel = Label(miFrame, text="Silla: ")
-    sillaLabel.grid(row=1, column=0, sticky="e")
+    sillaLabel.grid(row=6, column=0, sticky="e")
 
-    taburete = StringVar(miFrame)
+    taburete = IntVar(miFrame)
     cuadroTaburete= Entry(miFrame, textvariable= taburete)
-    cuadroTaburete.grid(row=1, column=1)
+    cuadroTaburete.grid(row=7, column=1)
     tabureteLabel = Label(miFrame, text="Mesa: ")
-    tabureteLabel.grid(row=1, column=0, sticky="e")
+    tabureteLabel.grid(row=7, column=0, sticky="e")
 
-    vitrina = StringVar(miFrame)
+    vitrina = IntVar(miFrame)
     cuadroVitrina = Entry(miFrame, textvariable=vitrina)
-    cuadroVitrina.grid(row=1, column=1)
+    cuadroVitrina.grid(row=8, column=1)
     vitrinaLabel = Label(miFrame, text="Silla: ")
-    vitrinaLabel.grid(row=1, column=0, sticky="e")
+    vitrinaLabel.grid(row=8, column=0, sticky="e")
 
 
     def add_mueble():
-        armar = armario.get()
-        cam = cama.get()
-        comod = comoda.get()
-        escrit = escritorio.get()
-        estant = estanteria.get()
-        mes = mesa.get()
-        sill = silla.get()
-        taburet = taburete.get()
-        vitrin = vitrina.get()
+        armar = int(armario.get())
+        cam = int(cama.get())
+        comod = int(comoda.get())
+        escrit = int(escritorio.get())
+        estant = int(estanteria.get())
+        mes = int(mesa.get())
+        sill = int(silla.get())
+        taburet = int(taburete.get())
+        vitrin = int(vitrina.get())
 
         try:
+            '''
             validar(armar)
             validar(cam)
             validar(comod)
@@ -241,17 +252,26 @@ def vista_agregar_mueble():
             validar(sill)
             validar(taburet)
             validar(vitrin)
+            '''
+            agregar_mueble(1, armar)
+            agregar_mueble(2, cam)
+            agregar_mueble(3, comod)
+            agregar_mueble(4, escrit)
+            agregar_mueble(5, estant)
+            agregar_mueble(6, mes)
+            agregar_mueble(7, sill)
+            agregar_mueble(8, taburet)
+            agregar_mueble(9, vitrin)
 
-            Controller.agregar_mueble(armar, cam, comod, escrit, estant, mes, sill, taburet, vitrin)
             messagebox.INFO("Cliente Registrado")
             root.destroy()
         except Exception as e:
             messagebox.askyesno("ERROR", e)
 
-    Button(root, text='Guardar', width=20, bg='white', fg='white', command=add_mueble).place(x=120, y=580)
-    Button(root, text='Salir', width=20, bg='white', fg='white', command=root.destroy).place(x=360, y=580)
+    Button(root, text='Guardar', width=20, bg='white', fg='black', command=add_mueble).place(x=120, y=580)
+    Button(root, text='Salir', width=20, bg='white', fg='black', command=root.destroy).place(x=360, y=580)
 
-def vista_agregar_venta(self, root):
+def vista_agregar_venta():
     root = Toplevel()
     root.title("Agregar venta")
     root.geometry('720x650')
@@ -261,81 +281,82 @@ def vista_agregar_venta(self, root):
     miFrame.pack()
     miFrame.place(x=100, y=100)
 
-    ci = StringVar(miFrame)
+    ci = IntVar(miFrame)
     cuadroCi= Entry(miFrame, textvariable=ci)
     cuadroCi.grid(row=0, column=1)
     ciLabel = Label(miFrame, text="C.I del cliente: ")
     ciLabel.grid(row=0, column=0, sticky="e")
 
-    armario = StringVar(miFrame)
+    armario = IntVar(miFrame)
     cuadroArmario = Entry(miFrame, textvariable=armario)
-    cuadroArmario.grid(row=0, column=1)
+    cuadroArmario.grid(row=1, column=1)
     ArmarioLabel = Label(miFrame, text="Armario: ")
-    ArmarioLabel.grid(row=0, column=0, sticky="e")
+    ArmarioLabel.grid(row=1, column=0, sticky="e")
 
-    cama = StringVar(miFrame)
+    cama = IntVar(miFrame)
     cuadroCama = Entry(miFrame, textvariable=cama)
-    cuadroCama.grid(row=1, column=1)
+    cuadroCama.grid(row=2, column=1)
     camaLabel = Label(miFrame, text="Cama: ")
-    camaLabel.grid(row=1, column=0, sticky="e")
+    camaLabel.grid(row=2, column=0, sticky="e")
 
-    comoda = StringVar(miFrame)
+    comoda = IntVar(miFrame)
     cuadroComoda = Entry(miFrame, textvariable=comoda)
-    cuadroComoda.grid(row=1, column=1)
+    cuadroComoda.grid(row=3, column=1)
     comodaLabel = Label(miFrame, text="Comoda: ")
-    comodaLabel.grid(row=1, column=0, sticky="e")
+    comodaLabel.grid(row=3, column=0, sticky="e")
 
-    escritorio = StringVar(miFrame)
+    escritorio = IntVar(miFrame)
     cuadroEscritorio = Entry(miFrame, textvariable=escritorio)
-    cuadroEscritorio.grid(row=1, column=1)
+    cuadroEscritorio.grid(row=4, column=1)
     escritorioLabel = Label(miFrame, text="Escritorio: ")
-    escritorioLabel.grid(row=1, column=0, sticky="e")
+    escritorioLabel.grid(row=4, column=0, sticky="e")
 
-    estanteria = StringVar(miFrame)
+    estanteria = IntVar(miFrame)
     cuadroEstanteria = Entry(miFrame, textvariable=estanteria)
-    cuadroEstanteria.grid(row=1, column=1)
+    cuadroEstanteria.grid(row=5, column=1)
     estanteriaLabel = Label(miFrame, text="Estanteria: ")
-    estanteriaLabel.grid(row=1, column=0, sticky="e")
+    estanteriaLabel.grid(row=5, column=0, sticky="e")
 
-    mesa = StringVar(miFrame)
+    mesa = IntVar(miFrame)
     cuadroMesa = Entry(miFrame, textvariable=mesa)
-    cuadroMesa.grid(row=1, column=1)
+    cuadroMesa.grid(row=6, column=1)
     mesaLabel = Label(miFrame, text="Mesa: ")
-    mesaLabel.grid(row=1, column=0, sticky="e")
+    mesaLabel.grid(row=6, column=0, sticky="e")
 
-    silla = StringVar(miFrame)
+    silla = IntVar(miFrame)
     cuadroSilla = Entry(miFrame, textvariable=silla)
-    cuadroSilla.grid(row=1, column=1)
+    cuadroSilla.grid(row=7, column=1)
     sillaLabel = Label(miFrame, text="Silla: ")
-    sillaLabel.grid(row=1, column=0, sticky="e")
+    sillaLabel.grid(row=7, column=0, sticky="e")
 
-    taburete = StringVar(miFrame)
+    taburete = IntVar(miFrame)
     cuadroTaburete = Entry(miFrame, textvariable=taburete)
-    cuadroTaburete.grid(row=1, column=1)
+    cuadroTaburete.grid(row=8, column=1)
     tabureteLabel = Label(miFrame, text="Mesa: ")
-    tabureteLabel.grid(row=1, column=0, sticky="e")
+    tabureteLabel.grid(row=8, column=0, sticky="e")
 
-    vitrina = StringVar(miFrame)
+    vitrina = IntVar(miFrame)
     cuadroVitrina = Entry(miFrame, textvariable=vitrina)
-    cuadroVitrina.grid(row=1, column=1)
+    cuadroVitrina.grid(row=9, column=1)
     vitrinaLabel = Label(miFrame, text="Silla: ")
-    vitrinaLabel.grid(row=1, column=0, sticky="e")
+    vitrinaLabel.grid(row=9, column=0, sticky="e")
 
 
 
     def add_venta():
-        ced = ci.get()
-        armar = armario.get()
-        cam = cama.get()
-        comod = comoda.get()
-        escrit = escritorio.get()
-        estant = estanteria.get()
-        mes = mesa.get()
-        sill = silla.get()
-        taburet = taburete.get()
-        vitrin = vitrina.get()
+        ced = int(ci.get())
+        armar = int(armario.get())
+        cam = int(cama.get())
+        comod = int(comoda.get())
+        escrit = int(escritorio.get())
+        estant = int(estanteria.get())
+        mes = int(mesa.get())
+        sill = int(silla.get())
+        taburet = int(taburete.get())
+        vitrin = int(vitrina.get())
 
         try:
+            '''
             validar(ci)
             validar(armar)
             validar(cam)
@@ -346,13 +367,32 @@ def vista_agregar_venta(self, root):
             validar(sill)
             validar(taburet)
             validar(vitrin)
+            ArmarioObj = Armario(obtener_stock(1).cantidad)
+            CamaObj = Cama()
+            ComodaObj = Comoda()
+            EscritorioObj = Escritorio()
+            EstanteriaObj = Estanteria()
+            MesaObj = Mesa()
+            SillaObj = Silla()
+            TabureteObj = Taburete()
+            VitrinaObj = Vitrina()
+            '''
+            agregar_venta(ced,1, armar)
+            agregar_venta(ced,2, cam)
+            agregar_venta(ced,3, comod)
+            agregar_venta(ced,4, escrit)
+            agregar_venta(ced,5, estant)
+            agregar_venta(ced,6, mes)
+            agregar_venta(ced,7, sill)
+            agregar_venta(ced,8, taburet)
+            agregar_venta(ced,9, vitrin)
 
             root.destroy()
         except Exception as e:
             messagebox.askyesno("ERROR", e)
 
-    Button(root, text='Guardar', width=20, bg='white', fg='white', command=add_venta).place(x=120, y=580)
-    Button(root, text='Salir', width=20, bg='white', fg='white', command=root.destroy).place(x=360, y=580)
+    Button(root, text='Guardar', width=20, bg='white', fg='black', command=add_venta).place(x=120, y=580)
+    Button(root, text='Salir', width=20, bg='white', fg='black', command=root.destroy).place(x=360, y=580)
 
 def vista_devolver_mueble():
     root = Toplevel()
@@ -366,80 +406,82 @@ def vista_devolver_mueble():
     miFrame.place(x=100, y=100)
 
 
-    ci = StringVar(miFrame)
+    ci = IntVar(miFrame)
     cuadroCi= Entry(miFrame, textvariable=ci)
     cuadroCi.grid(row=0, column=1)
     ciLabel = Label(miFrame, text="C.I del cliente: ")
     ciLabel.grid(row=0, column=0, sticky="e")
 
-    armario = StringVar(miFrame)
+    armario = IntVar(miFrame)
     cuadroArmario = Entry(miFrame, textvariable=armario)
-    cuadroArmario.grid(row=0, column=1)
+    cuadroArmario.grid(row=1, column=1)
     ArmarioLabel = Label(miFrame, text="Armario: ")
-    ArmarioLabel.grid(row=0, column=0, sticky="e")
+    ArmarioLabel.grid(row=1, column=0, sticky="e")
 
-    cama = StringVar(miFrame)
+    cama = IntVar(miFrame)
     cuadroCama = Entry(miFrame, textvariable=cama)
-    cuadroCama.grid(row=1, column=1)
+    cuadroCama.grid(row=2, column=1)
     camaLabel = Label(miFrame, text="Cama: ")
-    camaLabel.grid(row=1, column=0, sticky="e")
+    camaLabel.grid(row=2, column=0, sticky="e")
 
-    comoda = StringVar(miFrame)
+    comoda = IntVar(miFrame)
     cuadroComoda = Entry(miFrame, textvariable=comoda)
-    cuadroComoda.grid(row=1, column=1)
+    cuadroComoda.grid(row=3, column=1)
     comodaLabel = Label(miFrame, text="Comoda: ")
-    comodaLabel.grid(row=1, column=0, sticky="e")
+    comodaLabel.grid(row=3, column=0, sticky="e")
 
-    escritorio = StringVar(miFrame)
+    escritorio = IntVar(miFrame)
     cuadroEscritorio = Entry(miFrame, textvariable=escritorio)
-    cuadroEscritorio.grid(row=1, column=1)
+    cuadroEscritorio.grid(row=4, column=1)
     escritorioLabel = Label(miFrame, text="Escritorio: ")
-    escritorioLabel.grid(row=1, column=0, sticky="e")
+    escritorioLabel.grid(row=4, column=0, sticky="e")
 
-    estanteria = StringVar(miFrame)
+    estanteria = IntVar(miFrame)
     cuadroEstanteria = Entry(miFrame, textvariable=estanteria)
-    cuadroEstanteria.grid(row=1, column=1)
+    cuadroEstanteria.grid(row=5, column=1)
     estanteriaLabel = Label(miFrame, text="Estanteria: ")
-    estanteriaLabel.grid(row=1, column=0, sticky="e")
+    estanteriaLabel.grid(row=5, column=0, sticky="e")
 
-    mesa = StringVar(miFrame)
+    mesa = IntVar(miFrame)
     cuadroMesa = Entry(miFrame, textvariable=mesa)
-    cuadroMesa.grid(row=1, column=1)
+    cuadroMesa.grid(row=6, column=1)
     mesaLabel = Label(miFrame, text="Mesa: ")
-    mesaLabel.grid(row=1, column=0, sticky="e")
+    mesaLabel.grid(row=6, column=0, sticky="e")
 
-    silla = StringVar(miFrame)
+    silla = IntVar(miFrame)
     cuadroSilla = Entry(miFrame, textvariable=silla)
-    cuadroSilla.grid(row=1, column=1)
+    cuadroSilla.grid(row=7, column=1)
     sillaLabel = Label(miFrame, text="Silla: ")
-    sillaLabel.grid(row=1, column=0, sticky="e")
+    sillaLabel.grid(row=7, column=0, sticky="e")
 
-    taburete = StringVar(miFrame)
+    taburete = IntVar(miFrame)
     cuadroTaburete = Entry(miFrame, textvariable=taburete)
-    cuadroTaburete.grid(row=1, column=1)
+    cuadroTaburete.grid(row=8, column=1)
     tabureteLabel = Label(miFrame, text="Mesa: ")
-    tabureteLabel.grid(row=1, column=0, sticky="e")
+    tabureteLabel.grid(row=8, column=0, sticky="e")
 
-    vitrina = StringVar(miFrame)
+    vitrina = IntVar(miFrame)
     cuadroVitrina = Entry(miFrame, textvariable=vitrina)
-    cuadroVitrina.grid(row=1, column=1)
+    cuadroVitrina.grid(row=9, column=1)
     vitrinaLabel = Label(miFrame, text="Silla: ")
-    vitrinaLabel.grid(row=1, column=0, sticky="e")
+    vitrinaLabel.grid(row=9, column=0, sticky="e")
 
 
 
     def devoluciones():
-        armar = armario.get()
-        cam = cama.get()
-        comod = comoda.get()
-        escrit = escritorio.get()
-        estant = estanteria.get()
-        mes = mesa.get()
-        sill = silla.get()
-        taburet = taburete.get()
-        vitrin = vitrina.get()
+        ced = int(ci.get())
+        armar = int(armario.get())
+        cam = int(cama.get())
+        comod = int(comoda.get())
+        escrit = int(escritorio.get())
+        estant = int(estanteria.get())
+        mes = int(mesa.get())
+        sill = int(silla.get())
+        taburet = int(taburete.get())
+        vitrin = int(vitrina.get())
 
         try:
+            '''
             validar(ci)
             validar(armar)
             validar(cam)
@@ -450,47 +492,81 @@ def vista_devolver_mueble():
             validar(sill)
             validar(taburet)
             validar(vitrin)
-
+            '''
             root.destroy()
-            Controller.devolver_mueble(ci,clave,cantidad)
-            Controller.devolver_mueble(ci,clave,cantidad)
-            Controller.devolver_mueble(ci,clave,cantidad)
-            Controller.devolver_mueble(ci,clave,cantidad)
-            Controller.devolver_mueble(ci,clave,cantidad)
-            Controller.devolver_mueble(ci,clave,cantidad)
-            Controller.devolver_mueble(ci,clave,cantidad)
-            Controller.devolver_mueble(ci,clave,cantidad)
-            Controller.devolver_mueble(ci,clave,cantidad)
-            Controller.devolver_mueble(ci,clave,cantidad)
+            devolver_mueble(ced,1,armar)
+            devolver_mueble(ced,2,cam)
+            devolver_mueble(ced,3,comod)
+            devolver_mueble(ced,4,escrit)
+            devolver_mueble(ced,5,estant)
+            devolver_mueble(ced,6,mes)
+            devolver_mueble(ced,7,sill)
+            devolver_mueble(ced,8,taburet)
+            devolver_mueble(ced,9,vitrin)
+
             messagebox.showinfo('Aviso', 'EXITO AL DEVOLVER')
         except Exception as e:
             messagebox.askyesno("ERROR", e)
 
-    Button(root, text='Guardar', width=20, bg='white', fg='white', command=devoluciones).place(x=120, y=580)
-    Button(root, text='Salir', width=20, bg='white', fg='white', command=root.destroy).place(x=360, y=580)
+    Button(root, text='Guardar', width=20, bg='white', fg='black', command=devoluciones).place(x=120, y=580)
+    Button(root, text='Salir', width=20, bg='white', fg='black', command=root.destroy).place(x=360, y=580)
 
 
+def vista_mostrar_cliente(cliente):
+    ventanaAbrir = Toplevel()
+    ventanaAbrir.geometry("400x400+100+100")
+    ventanaAbrir.title("Listado de Clientes")
+    texto = Text(ventanaAbrir, height=720, width=480)
+    texto.insert(INSERT, 'Nombre: ' + str(cliente.nombre) + '\n' + 'Apellido: ' + str(
+        cliente.apellido) + '\n' + 'Direccion: ' + str(cliente.direccion) + '\n' + 'Ruc: ' + str(
+        cliente.ruc) + '\n' + 'Telefono: ' + str(cliente.contacto) + '\n')
+    texto.pack()
+
+
+def vista_listar_clientes():
+    ventanaAbrir = Toplevel()
+    ventanaAbrir.geometry("400x400+100+100")
+    ventanaAbrir.title("Listado de Clientes")
+    texto = Text(ventanaAbrir, height=720, width=480)
+    listaDeClientes = listar_clientes()
+    for cliente in listaDeClientes:
+        texto.insert(INSERT, 'Nombre: ' + str(cliente.nombre) + '\n' + 'Apellido: ' + str(
+            cliente.apellido) + '\n' + 'Direccion: ' + str(cliente.direccion) + '\n' + 'Ruc: ' + str(
+            cliente.ruc) + '\n' + 'Telefono: ' + str(cliente.contactos) + '\n\n')
+        texto.pack()
+
+
+def vista_listar_empleados():
+    ventanaAbrir = Toplevel()
+    ventanaAbrir.geometry("400x400+100+100")
+    ventanaAbrir.title("Listado de Empleados")
+    texto = Text(ventanaAbrir, height=720, width=480)
+    listaDeEmpleados = listar_empleados()
+    for empleado in listaDeEmpleados:
+        texto.insert(INSERT, 'Nombre: ' + empleado.nombre + '\n' +'Apellido: ' + empleado.apellido + '\n' + 'Telefono: ' +
+            empleado.contactos + '\n' + 'Direccion: ' + empleado.direccion + '\n' + 'CI: ' +
+            empleado.cedula + '\n') + '\n' + 'Cargo: '+ empleado.cargo + '\n'\
+            + 'Salario: ' + empleado.salario
+        texto.pack()
+
+
+def vista_mostrar_muebles():
+    ventanaAbrir = Toplevel()
+    ventanaAbrir.geometry("400x450+100+100")
+    ventanaAbrir.title("Listado de Muebles")
+    texto = Text(ventanaAbrir, height=720, width=480)
+    '''
+    listaMuebles = []
+    listaMuebles.append(listar_stock(1))
+    listaMuebles.append(listar_stock(2))
+    '''
+    for i in range(1,10):
+        mueble = listar_stock(i)
+        texto.insert(INSERT,
+                     'Nombre: ' + mueble.nombre + '\n' + 'Cantidad: ' + str(mueble.cantidad) + '\n\n')
+        texto.pack()
+'''
 def validar(valor):
     if not valor.isdigit():
         raise Exception("Debe ser un valor numerico")
-
-barraMenu = Menu(root)
-barraMenu.add_command(label="Devolución", command=vista_devolver_mueble)
-
-menuAgregar = Menu(barraMenu, tearoff=0)
-menuAgregar.add_command(label="Agregar Clientes", command=vista_agregar_cliente)
-menuAgregar.add_command(label="Agregar Empleado", command=vista_agregar_empleado)
-menuAgregar.add_command(label="Aregar Venta", command=vista_agregar_venta)
-menuAgregar.add_command(label="Aregar Mueble", command=vista_agregar_mueble)
-
-menuListar = Menu(barraMenu, tearoff=0)
-menuListar.add_command(label="Lista de Clientes", command=c.listar_clientes)
-menuListar.add_command(label="Lista de Empleados", command=c.listar_empleados)
-menuListar.add_command(label="Lista de Muebles", command=c.listar_stock)
-
-barraMenu.add_cascade(label="Agregar", menu=menuAgregar)
-barraMenu.add_cascade(label="Listar", menu=menuListar)
-
-root.config(menu=barraMenu)
-root.mainloop()
-
+'''

@@ -7,10 +7,9 @@ class Cliente(Persona, Persistent):
     def get_clave(self):
         return self.clave
 
-    def __init__(self, nombre, apellido, cedula, direccion, ruc = 'ninguno', muebles = None):
-        super().__init__(nombre, apellido, cedula, direccion)
+    def __init__(self, nombre, apellido, cedula, direccion,contactos, ruc = 'ninguno'):
+        super().__init__(nombre, apellido, cedula, direccion,contactos)
         self.ruc = ruc
-        self.muebles = muebles
 
     def obtener_ruc(self):
         return self.ruc
@@ -22,4 +21,4 @@ class Cliente(Persona, Persistent):
         self.muebles.append(bien)
 
     def __str__(self):
-        return super().__str__() + str(self.muebles) + '\nRUC: ' + self.ruc + '\nMuebles:\n' + str(self.muebles)
+        return super().__str__() + '\nRUC: ' + self.ruc

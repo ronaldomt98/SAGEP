@@ -2,7 +2,7 @@ from models.Mueble import Mueble
 from Bdatos import modificar_venta, modificar_compra
 
 class Taburete(Mueble):
-    clave = "taburete"
+    clave = 8
     precio = 30000
 
     def __init__(self):
@@ -18,6 +18,14 @@ class Taburete(Mueble):
             return False
 
     def comprar(self, cantidad):
+        try:
+            if modificar_compra(self.clave, cantidad) == False:
+                return False
+            return True
+        except ValueError:
+            return False
+
+    def devolver(self, cantidad):
         try:
             if modificar_compra(self.clave, cantidad) == False:
                 return False
