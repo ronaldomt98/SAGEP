@@ -543,10 +543,10 @@ def vista_listar_empleados():
     texto = Text(ventanaAbrir, height=720, width=480)
     listaDeEmpleados = listar_empleados()
     for empleado in listaDeEmpleados:
-        texto.insert(INSERT, 'Nombre: ' + empleado.nombre + '\n' +'Apellido: ' + empleado.apellido + '\n' + 'Telefono: ' +
-            empleado.contactos + '\n' + 'Direccion: ' + empleado.direccion + '\n' + 'CI: ' +
-            empleado.cedula + '\n') + '\n' + 'Cargo: '+ empleado.cargo + '\n'\
-            + 'Salario: ' + empleado.salario
+        texto.insert(INSERT, 'Nombre: ' + str(empleado.nombre) + '\n' +'Apellido: ' + str(empleado.apellido) + '\n' + 'Telefono: ' +
+            str(empleado.contactos) + '\n' + 'Direccion: ' + str(empleado.direccion) + '\n' + 'CI: ' +
+            str(empleado.cedula) + '\n' + 'Cargo: '+ str(empleado.cargo) + '\n'\
+            + 'Salario: ' + str(empleado.salario) + '\n\n')
         texto.pack()
 
 

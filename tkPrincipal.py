@@ -11,11 +11,13 @@ from Bdatos import inicializar_stock
 
 ventana = Tk()
 inicializar_stock()
-
 ventana.geometry("800x650")
 ventana.title("SAGEP")
-# creamos los menus
 
+imagen =  PhotoImage(file='fondo.gif')
+labelImagen = Label(ventana, image=imagen).place(x=800,y=650)
+
+# creamos los menus
 barraMenu = Menu(ventana)
 barraMenu.add_command(label="Devolución", command=vista_devolver_mueble)
 
