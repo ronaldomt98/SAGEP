@@ -17,6 +17,17 @@ from models.Vitrina import Vitrina
 
 
 
+muebles = []
+muebles.append("Armario")
+muebles.append("Cama")
+muebles.append("Comoda")
+muebles.append("Escritorio")
+muebles.append("Estanteria")
+muebles.append("Mesa")
+muebles.append("Silla")
+muebles.append("Taburete")
+muebles.append("Vitrina")
+
 def vista_agregar_cliente():
     root = Toplevel()
     root.title("Agregar Cliente")
@@ -564,6 +575,29 @@ def vista_mostrar_muebles():
         mueble = listar_stock(i)
         texto.insert(INSERT,
                      'Nombre: ' + mueble.nombre + '\n' + 'Cantidad: ' + str(mueble.cantidad) + '\n\n')
+        texto.pack()
+
+
+def vista_mostrar_ventas():
+    ventanaAbrir = Toplevel()
+    ventanaAbrir.geometry("400x450+100+100")
+    ventanaAbrir.title("Listado de Ventas")
+    texto = Text(ventanaAbrir, height=720, width=480)
+    listaDeVentas = listar_ventas()
+    for venta in listaDeVentas:
+        texto.insert(INSERT, 'Nombre: ' + str(venta.ci) + '\n' +'Mueble: ' + str(muebles[venta.mueble-1]) + '\n'
+                     +'Cantidad: ' + str(venta.cantidad) + '\n\n')
+        texto.pack()
+
+def vista_mostrar_devoluciones():
+    ventanaAbrir = Toplevel()
+    ventanaAbrir.geometry("400x450+100+100")
+    ventanaAbrir.title("Listado de Devoluciones")
+    texto = Text(ventanaAbrir, height=720, width=480)
+    listaDeDevoluciones = listar_devoluciones()
+    for venta in listaDeDevoluciones:
+        texto.insert(INSERT, 'Nombre: ' + str(venta.ci) + '\n' + 'Mueble: ' + str(muebles[venta.mueble-1]) + '\n'
+                     + 'Cantidad: ' + str(venta.cantidad) + '\n\n')
         texto.pack()
 '''
 def validar(valor):

@@ -7,6 +7,8 @@ from Apptk import vista_agregar_mueble
 from Apptk import vista_listar_clientes
 from Apptk import vista_listar_empleados
 from Apptk import vista_mostrar_muebles
+from Apptk import vista_mostrar_ventas
+from Apptk import vista_mostrar_devoluciones
 from Bdatos import inicializar_stock
 
 ventana = Tk()
@@ -31,6 +33,8 @@ menuListar = Menu(barraMenu, tearoff=0)
 menuListar.add_command(label="Lista de Clientes", command=vista_listar_clientes)
 menuListar.add_command(label="Lista de Empleados", command=vista_listar_empleados)
 menuListar.add_command(label="Lista de Muebles", command=vista_mostrar_muebles)
+menuListar.add_command(label="Lista de Ventas", command=vista_mostrar_ventas)
+menuListar.add_command(label="Lista de Devoluciones", command=vista_mostrar_devoluciones)
 
 barraMenu.add_cascade(label="Agregar", menu=menuAgregar)
 barraMenu.add_cascade(label="Listar", menu=menuListar)

@@ -138,7 +138,6 @@ def obtener_empleados():
 
 def obtener_stock(clave):
     try:
-        stock = Stock()
         stock = dbroot[clave]
         return stock
     except ValueError:
@@ -178,7 +177,7 @@ def modificar_venta(ci,clave,valor):
         venta = Venta()
         venta.cantidad = valor
         venta.ci = ci
-        venta.clave = clave
+        venta.mueble = clave
         dbroot[ci] = venta
         transaction.commit()
         return True
@@ -194,3 +193,21 @@ def modificar_compra(clave,valor):
         return True
     except ValueError:
         return False
+
+def obtener_ventas():
+    ventas = []
+    for key in dbroot.keys():
+        obj = dbroot[key]
+        if isinstance(obj, Venta):
+            if (not obj.revertida):
+                ventas.append(obj)
+    return ventas
+
+def obtener_devoluciones():
+    devoluciones = []
+    for key in dbroot.keys():
+        obj = dbroot[key]
+        if isinstance(obj, Venta):
+            if (obj.revertida):
+                devoluciones.append(obj)
+    return devoluciones

@@ -1,6 +1,6 @@
 from Bdatos import obtener_cliente, guardar_cliente, obtener_clientes, actualizar_cliente\
     , devolver, guardar_empleado, obtener_empleados, obtener_stock, guardar_mueble\
-    , modificar_venta
+    , modificar_venta, obtener_ventas, obtener_devoluciones
 
 def agregar_mueble(mueble, cantidad):
     guardar_mueble(mueble, cantidad)
@@ -35,6 +35,13 @@ def devolver_mueble(ci, clave, cantidad):
     '''
     devolver(ci, clave, cantidad)
 
+def listar_ventas():
+    listaVentas = obtener_ventas()
+    return listaVentas
+
+def listar_devoluciones():
+    listaDevoluciones = obtener_devoluciones()
+    return listaDevoluciones
 '''
 def agregar_venta(mueble, cliente, cantidad):
     mueble.vender(cliente, cantidad)

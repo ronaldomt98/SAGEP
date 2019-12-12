@@ -117,27 +117,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Cama" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="SAGEP" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/models" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/models/Cama.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="MuebleControler" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="SAGEP" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -151,6 +130,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/controller/MuebleControler.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Venta" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="SAGEP" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Venta.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -183,10 +183,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.tkPrincipal" />
+        <item itemvalue="Python.Venta" />
         <item itemvalue="Python.Apptk" />
         <item itemvalue="Python.App" />
         <item itemvalue="Python.MuebleControler" />
-        <item itemvalue="Python.Cama" />
       </list>
     </recent_temporary>
   </component>
@@ -229,10 +229,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="409" y="5" key="#tkPrincipal/0.0.1366.728@0.0.1366.728" timestamp="1576105244680" />
-    <state width="470" height="438" key="DebuggerActiveHint" timestamp="1576106407827">
+    <state width="819" height="438" key="DebuggerActiveHint" timestamp="1576109748545">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="470" height="438" key="DebuggerActiveHint/0.0.1366.728@0.0.1366.728" timestamp="1576106407827" />
+    <state width="819" height="438" key="DebuggerActiveHint/0.0.1366.728@0.0.1366.728" timestamp="1576109748545" />
     <state x="417" y="128" key="EnvironmentVariablesDialog" timestamp="1576105227965">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -241,38 +241,38 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="462" y="121" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1576105837014" />
-    <state width="1345" height="188" key="GridCell.Tab.0.bottom" timestamp="1576107758159">
+    <state width="1345" height="220" key="GridCell.Tab.0.bottom" timestamp="1576111382563">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="188" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1576107758159" />
-    <state width="1345" height="188" key="GridCell.Tab.0.center" timestamp="1576107758159">
+    <state width="1345" height="220" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1576111382563" />
+    <state width="1345" height="220" key="GridCell.Tab.0.center" timestamp="1576111382563">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="188" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1576107758159" />
-    <state width="1345" height="188" key="GridCell.Tab.0.left" timestamp="1576107758159">
+    <state width="1345" height="220" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1576111382563" />
+    <state width="1345" height="220" key="GridCell.Tab.0.left" timestamp="1576111382563">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="188" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1576107758159" />
-    <state width="1345" height="188" key="GridCell.Tab.0.right" timestamp="1576107758159">
+    <state width="1345" height="220" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1576111382563" />
+    <state width="1345" height="220" key="GridCell.Tab.0.right" timestamp="1576111382563">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="188" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1576107758159" />
-    <state width="1308" height="202" key="GridCell.Tab.1.bottom" timestamp="1576106550299">
+    <state width="1345" height="220" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1576111382563" />
+    <state width="1345" height="220" key="GridCell.Tab.1.bottom" timestamp="1576111382563">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1308" height="202" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1576106550299" />
-    <state width="1308" height="202" key="GridCell.Tab.1.center" timestamp="1576106550299">
+    <state width="1345" height="220" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1576111382563" />
+    <state width="1345" height="220" key="GridCell.Tab.1.center" timestamp="1576111382563">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1308" height="202" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1576106550299" />
-    <state width="1308" height="202" key="GridCell.Tab.1.left" timestamp="1576106550299">
+    <state width="1345" height="220" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1576111382563" />
+    <state width="1345" height="220" key="GridCell.Tab.1.left" timestamp="1576111382563">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1308" height="202" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1576106550299" />
-    <state width="1308" height="202" key="GridCell.Tab.1.right" timestamp="1576106550299">
+    <state width="1345" height="220" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1576111382563" />
+    <state width="1345" height="220" key="GridCell.Tab.1.right" timestamp="1576111382563">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1308" height="202" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1576106550299" />
+    <state width="1345" height="220" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1576111382563" />
     <state x="186" y="9" key="SettingsEditor" timestamp="1576105858525">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -291,18 +291,28 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Apptk.py</url>
-          <line>544</line>
+          <line>555</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Apptk.py</url>
-          <line>233</line>
+          <line>244</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Apptk.py</url>
-          <line>379</line>
+          <line>390</line>
           <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Apptk.py</url>
+          <line>587</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Apptk.py</url>
+          <line>357</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
